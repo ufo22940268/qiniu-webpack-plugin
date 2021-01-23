@@ -1,6 +1,6 @@
 {
   "name": "hq-qiniu-webpack-plugin",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "description": "Webpack plugin for Qiniu cloud storage",
   "main": "index.js",
   "scripts": {
