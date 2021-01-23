@@ -48,25 +48,26 @@ class QiniuPlugin {
         const token = putPolicy.token();
         const extra = new qiniu.io.PutExtra();
 
-        const promise = new Promise((resolve, reject) => {
-          const begin = Date.now();
-          qiniu.io.putFile(token, key, assets[fileName].existsAt, extra, (err, ret) => {
-            if (!err) {
-              resolve({
-                ...ret,
-                duration: Date.now() - begin,
-              });
-            } else {
-              reject(err);
-            }
+        return () => {
+          const promise = new Promise((resolve, reject) => {
+            const begin = Date.now();
+            qiniu.io.putFile(token, key, assets[fileName].existsAt, extra, (err, ret) => {
+              if (!err) {
+                resolve({
+                  ...ret,
+                  duration: Date.now() - begin,
+                });
+              } else {
+                reject(err);
+              }
+            });
           });
-        });
 
-        return promise;
+          return promise;
+        };
       });
 
-      Promise
-        .all(promises)
+      promises.reduce((p, p2) => p.then(() => p2()), Promise.resolve())
         .then((res) => {
           console.log(res); // eslint-disable-line no-console
           callback();
