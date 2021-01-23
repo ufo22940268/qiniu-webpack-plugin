@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wyvernnot/qiniu-webpack-plugin.git"
+    "url": "git+https://github.com/ufo22940268/qiniu-webpack-plugin.git"
   },
   "keywords": [
     "qiniu",
