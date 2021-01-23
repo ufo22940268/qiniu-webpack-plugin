@@ -51,6 +51,7 @@ class QiniuPlugin {
         return () => {
           const promise = new Promise((resolve, reject) => {
             const begin = Date.now();
+            console.log('upload key: ' + JSON.stringify(key, null, 4) + '\n');
             qiniu.io.putFile(token, key, assets[fileName].existsAt, extra, (err, ret) => {
               if (!err) {
                 resolve({
