@@ -33,3 +33,12 @@ node_modules
 
 # Optional REPL history
 .node_repl_history
+/.idea/.gitignore
+/.idea/codeStyles/codeStyleConfig.xml
+/.idea/encodings.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/package-lock.json
+/.idea/codeStyles/Project.xml
+/.idea/qiniu-webpack-plugin.iml
+/.idea/vcs.xml
